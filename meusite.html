@@ -1,0 +1,482 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal Criativo | Unindo Arte, Ciência e Imaginação</title>
+    <meta name="description" content="Portal central de projetos criativos: canais de vídeo, podcasts e livros infantis. Explore, assista, ou compre os livros em PDF.">
+    <meta name="author" content="Seu Nome">
+    <meta property="og:title" content="Portal Criativo | Unindo Arte, Ciência e Imaginação">
+    <meta property="og:description" content="Explore meus canais, podcasts e livros infantis. Leia online ou compre os PDFs.">
+    <meta property="og:image" content="LINK_DA_IMAGEM_DE_PREVIEW">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+   <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #f9f9f9;
+      color: #222;
+      margin: 0;
+      padding: 0;
+    }
+
+ nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(58, 141, 222, 0.95);
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      padding: 0.8rem 0;
+      z-index: 1000;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #ffed8c;
+    }
+
+    header {
+      background: linear-gradient(90deg, #3a8dde, #5fcba1);
+      color: white;
+      text-align: center;
+      padding: 2rem 1rem;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
+    main {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 1rem;
+    }
+    section {
+      background: white;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    h2 {
+      color: #3a8dde;
+      border-bottom: 2px solid #3a8dde33;
+      padding-bottom: 0.3rem;
+    }
+    .channels a {
+      display: inline-block;
+      margin: 0.4rem;
+      padding: 0.6rem 1rem;
+      background: #3a8dde;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: 0.2s;
+    }
+    .channels a:hover {
+      background: #2b6fb0;
+    }
+    .books {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+    }
+    .book {
+      background: #f4f4f4;
+      border-radius: 10px;
+      padding: 1rem;
+      text-align: center;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+    }
+    .book h3 {
+      margin-top: 0.5rem;
+    }
+    .book button {
+      margin: 0.3rem;
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: 0.2s;
+    }
+    .read-btn {
+      background: #5fcba1;
+      color: white;
+    }
+    .read-btn:hover {
+      background: #4ca988;
+    }
+    .buy-btn {
+      background: #3a8dde;
+      color: white;
+    }
+    .buy-btn:hover {
+      background: #2b6fb0;
+    }
+
+    /* Modal */
+    #pdfModal {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.6);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 999;
+    }
+    #pdfModal.hidden {
+      display: none;
+    }
+    #pdfModal iframe {
+      width: 80%;
+      height: 80%;
+      border: none;
+      border-radius: 10px;
+      background: white;
+    }
+    .close-btn {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      background: #ff5555;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      font-size: 1.2rem;
+      width: 35px;
+      height: 35px;
+      cursor: pointer;
+    }
+
+
+footer {
+      background: #3a8dde;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 4rem;
+    }
+
+    footer a {
+      color: #ffed8c;
+      text-decoration: none;
+      font-weight: 600;
+    }
+  </style>
+
+
+<script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#8BB8E8',
+                        secondary: '#A3D9B1',
+                        accent: '#FFD166',
+                        cream: '#FFF9EC',
+                        slate: '#4A5568'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-cream font-sans antialiased">
+
+ <nav>
+    <a href="#inicio"></a>
+    <a href="#canais"></a>
+    <a href="#livros"></a>
+    <a href="#contato"></a>
+  </nav>
+
+
+
+    <custom-header></custom-header>
+
+
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <!-- Hero Section -->
+        <section class="mb-24">
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="md:w-1/2">
+                    <h1 class="text-4xl md:text-5xl font-bold text-slate-800 mb-6">
+                        Unindo <span class="text-primary">ciência</span>, 
+                        <span class="text-secondary">imaginação</span> e 
+                        <span class="text-accent">arte</span>
+                    </h1>
+                    <p class="text-lg text-slate-600 mb-8 leading-relaxed">
+                        Explore meus projetos que misturam educação, entretenimento e reflexão.
+                    </p>
+                    <a href="#projects" class="bg-primary hover:bg-primary/90 text-white px-6 py-3 rounded-full font-medium transition-all shadow-lg hover:shadow-xl inline-flex items-center gap-2" aria-label="Explorar meus projetos">
+                        Explorar meus projetos <i data-feather="arrow-right"></i>
+                    </a>
+                </div>
+                <div class="md:w-1/2">
+                    <img src="file:///home/laise/Modelos/meu-site/image/image1.png" class="rounded-2xl shadow-xl w-full h-auto object-cover" loading="lazy">
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="mb-24">
+            <h2 class="text-3xl font-bold text-center text-slate-800 mb-12">Meus Canais</h2>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Channel 1 -->
+                <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all border-t-4 border-primary">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="bg-primary/10 p-3 rounded-full">
+                            <i data-feather="eye" class="text-primary w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-800">Conhecendo o Invisível</h3>
+                    </div>
+	<img src="file:///home/laise/Modelos/meu-site/image/Image%204.png" alt="Conhecendo o  invisível" class="w-full h-45 object-cover" loading="lazy">
+                    <p class="text-slate-600 mb-6">Canal sobre ciência, filosofia e os mistérios do universo.</p>
+                    <a href="https://www.youtube.com/@laiserbeiro" class="text-primary hover:text-primary/80 font-medium inline-flex items-center gap-1" aria-label="Visitar Conhecendo o Invisível no YouTube">
+                       YouTube <i data-feather="external-link" class="w-4 h-4"></i>
+                    </a>
+	 <a href="#" class="text-secondary hover:text-secondary/80 font-medium inline-flex items-center gap-1" aria-label="Comnhecendo o invisível">
+                            TikTok <i data-feather="external-link" class="w-4 h-4"></i>
+                        </a>
+
+                </div>
+
+                <!-- Channel 2 -->
+                <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all border-t-4 border-secondary">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="bg-secondary/10 p-3 rounded-full">
+                            <i data-feather="pen-tool" class="text-secondary w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-800">Desenhos do Léo</h3>
+                    </div>
+<img src="file:///home/laise/Modelos/meu-site/image/criancasnoparque.png" alt="Desenhos do Leo" class="w-full h-45 object-cover" loading="lazy">
+
+                    <p class="text-slate-600 mb-6">Canal infantil com Vídeos Educativos. Educação Ambiental, Ecologia, Ciências.</p>
+                    <div class="flex gap-4">
+                        <a href="https://www.youtube.com/@desenhosdoleo-p4f" class="text-secondary hover:text-secondary/80 font-medium inline-flex items-center gap-1" aria-label="Desenhos do Léo no YouTube">
+                            YouTube <i data-feather="external-link" class="w-4 h-4"></i>
+                        </a>
+                       
+                    </div>
+                </div>
+
+                <!-- Channel 3 -->
+                <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all border-t-4 border-accent">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="bg-accent/10 p-3 rounded-full">
+                            <i data-feather="mic" class="text-accent w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-800">Papo Bit</h3>
+
+                    </div>
+<img src="file:///home/laise/Modelos/meu-site/image/capa-papo-Bit.png" alt="Papo Bit" class="w-full h-45 object-cover" loading="lazy">
+                    <p class="text-slate-600 mb-6">Podcast com reflexões sobre tecnologia e sociedade.</p>
+                    <div class="flex gap-4">
+                        <a href="#" class="text-accent hover:text-accent/80 font-medium inline-flex items-center gap-1" aria-label="Papo Bit no Spotify">
+                            Spotify <i data-feather="external-link" class="w-4 h-4"></i>
+                        </a>
+                        <a href="#" class="text-accent hover:text-accent/80 font-medium inline-flex items-center gap-1" aria-label="Papo Bit no YouTube">
+                            YouTube <i data-feather="external-link" class="w-4 h-4"></i>
+                        </a>
+
+ <a href="#" class="text-secondary hover:text-secondary/80 font-medium inline-flex items-center gap-1" aria-label="Comnhecendo o invisível">
+                            TikTok <i data-feather="external-link" class="w-4 h-4"></i>
+                        </a>
+
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+<!-- Books Section with Modal -->
+<section class="mb-24">
+    <h2 class="text-3xl font-bold text-center text-slate-800 mb-12">Biblioteca Digital<p>
+</h2></p>
+ <!-- Seção dos livros -->
+  
+<section>
+    <h2>Livros Infantis</h2>
+    <div class="books">
+      <div class="book">
+
+<!--LIVRO 1-->
+        <h3>Jornada da Sementinha</h3>
+<img src="file:///home/laise/Modelos/meu-site/image/Ajornada-da-sementinha.png" alt="Desenhos do Leo" class="w-full h-35 object-cover" loading="lazy">
+        <button class="read-btn" onclick="openModal('pdf1')">Ler Online</button>
+        <button class="buy-btn" onclick="window.open('https://seusite.com/pagamento/joenada', '_blank')"> Baixar PDF (R$2,00)</button>
+      </div>
+
+<!--LIVRO 2-->
+
+      <div class="book">
+        <h3>A Horta da Escola</h3>
+<img src="file:///home/laise/Modelos/meu-site/image/horta-da-escola.png" alt="A Horta da Escola" class="w-full h-35 object-cover" loading="lazy">
+
+        <button class="read-btn" onclick="openModal('pdf2')">Ler Online</button>
+        <button class="buy-btn" onclick="window.open('https://seusite.com/pagamento/espaco', '_blank')">Baixar PDF (R$2,00)</button>
+      </div>
+
+<!-- LIVRO 3 -->
+      <div class="book">
+        <h3>O Sistema Solar</h3>
+<img src="file:///home/laise/Modelos/meu-site/image/Os-planetas-e-o-sistema-solar.png" alt="O Sistema Solar" class="w-full h-35 object-cover" loading="lazy">
+        <button class="read-btn" onclick="openModal('pdf3')">Ler Online</button>
+        <button class="buy-btn" onclick="window.open('https://seusite.com/pagamento/floresta', '_blank')">Baixar PDF (R$2,00)</button>
+      </div>
+
+<!-- LIVRO 4 -->
+
+<div class="book">
+        <h3>O Ciclo da Água</h3>
+<img src="file:///home/laise/Modelos/meu-site/image/O-Ciclo-da-Agua.png" alt="O Ciclo da Água" class="w-full h-35 object-cover" loading="lazy">
+
+        <button class="read-btn" onclick="openModal('pdf4')">Ler Online</button>
+        <button class="buy-btn" onclick="window.open('https://seusite.com/pagamento/espaco', '_blank')">Baixar PDF (R$2,00)</button>
+      </div>
+
+
+
+    </div>
+  </section>
+
+</main>
+
+<!-- Modal de leitura -->
+<div id="pdfModal" class="hidden" onclick="closeModal()">
+  <button class="close-btn" onclick="closeModal()">×</button>
+  <iframe id="modalIframe"></iframe>
+</div>
+
+<script>
+function openModal(pdfId) {
+  // Caminhos híbridos: locais e online
+  const baseLocal = 'file:///home/laise/Modelos/meu-site/pdf/';
+  const baseOnline = window.location.origin + '/pdf/';
+
+  const isLocal = window.location.protocol === 'file:';
+  const basePath = isLocal ? baseLocal : baseOnline;
+
+  const pdfLinks = {
+    pdf1: 'joenada-da-sementinha.pdf',
+    pdf2: 'A-Horta-da-Nossa-Escola.pdf',
+    pdf3: 'O-SistemaSolar.pdf',
+    pdf4: 'O-Ciclo-da-Agua.png'
+  };
+
+  const pdfPath = basePath + pdfLinks[pdfId];
+  document.getElementById('modalIframe').src = pdfPath;
+  document.getElementById('pdfModal').classList.remove('hidden');
+}
+
+function closeModal() {
+  document.getElementById('modalIframe').src = '';
+  document.getElementById('pdfModal').classList.add('hidden');
+}
+</script>
+
+
+
+
+        <!-- Contact Section -->
+
+  <section id="contato">
+   
+
+
+        <section class="mb-24">
+            <h2 class="text-3xl font-bold text-center text-slate-800 mb-12">Vamos Conversar</h2>
+            
+            <div class="max-w-3xl mx-auto bg-white rounded-xl shadow-lg p-8">
+                <form class="space-y-6">
+                    <div>
+                        <label for="name" class="block text-sm font-medium text-slate-700 mb-1">Nome</label>
+                        <input type="text" id="name" class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary">
+                    </div>
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-slate-700 mb-1">E-mail</label>
+                        <input type="email" id="email" class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary">
+                    </div>
+                    <div>
+                        <label for="message" class="block text-sm font-medium text-slate-700 mb-1">Mensagem</label>
+                        <textarea id="message" rows="4" class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary"></textarea>
+                    </div>
+                    <button type="submit" class="bg-primary hover:bg-primary/90 text-white px-6 py-3 rounded-full font-medium w-full">
+                        Enviar Mensagem
+                    </button>
+                </form>
+
+   <h2>Contato</h2>
+      <p>Quer falar comigo sobre colaborações, projetos ou livros? 💌</p>
+      <p>Envie um e-mail para: <strong><a href="mailto:contato@laise.com">contato@laise.com</a></strong></p>
+    </section>
+
+                <div class="mt-12">
+                    <h3 class="text-xl font-bold text-slate-800 mb-6 text-center">Ou encontre-me em</h3>
+                    <div class="flex justify-center gap-6">
+                        <a href="#" class="text-slate-600 hover:text-primary transition-colors">
+                            <i data-feather="youtube" class="w-6 h-6"></i>
+                        </a>
+                        <a href="#" class="text-slate-600 hover:text-secondary transition-colors">
+                            <i data-feather="instagram" class="w-6 h-6"></i>
+                        </a>
+                        <a href="#" class="text-slate-600 hover:text-accent transition-colors">
+                            <i data-feather="twitter" class="w-6 h-6"></i>
+                        </a>
+                        <a href="#" class="text-slate-600 hover:text-primary transition-colors">
+                            <i data-feather="spotify" class="w-6 h-6"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <custom-footer>
+ <footer>
+    © 2025 Universo Criativo de Laíse — Todos os direitos reservados. 🌙
+  </footer>
+</custom-footer>
+
+    <script src="components/header.js"></script>
+    <script src="components/footer.js"></script>
+    <script src="script.js"></script>
+    <script>feather.replace();</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
