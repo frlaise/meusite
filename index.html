@@ -22,6 +22,10 @@
       padding: 0;
     }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> d68e163dd6f31cd9c8810632dc8726411c5fe260
     header {
       background: linear-gradient(90deg, #3a8dde, #5fcba1);
       color: white;
@@ -193,14 +197,11 @@ footer {
 </head>
 <body class="bg-cream font-sans antialiased">
 
- 
 
 <header>
   <h1>Universo Criativo de Laise</h1>
-  <p>Histórias, reflexões e descobertas — tudo em um só espaço ✨</h1></p>
+  <p>Histórias, reflexões e descobertas — tudo em um só espaço </h1></p>
 </header>
-
-
 
 
     <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -242,8 +243,13 @@ footer {
                         </div>
                         <h3 class="text-xl font-bold text-slate-800">Conhecendo o Invisível</h3>
                     </div>
+<<<<<<< HEAD
 	<img src="https://github.com/frlaise/meusite/blob/main/image/image/Image%204.png" alt="Conhecendo o  invisível" class="w-full h-45 object-cover" loading="lazy">
                     <p class="text-slate-600 mb-6">Canal sobre filosofia, ciência e os mistérios do universo.</p>
+=======
+	<img src="https://github.com/frlaise/meusite/blob/main/image/Image%204.png" alt="Conhecendo o  invisível" class="w-full h-45 object-cover" loading="lazy">
+                    <p class="text-slate-600 mb-6">Canal sobre ciência, filosofia e os mistérios do universo.</p>
+>>>>>>> d68e163dd6f31cd9c8810632dc8726411c5fe260
                     <a href="https://www.youtube.com/@laiserbeiro" class="text-primary hover:text-primary/80 font-medium inline-flex items-center gap-1" aria-label="Visitar Conhecendo o Invisível no YouTube">
                        YouTube <i data-feather="external-link" class="w-4 h-4"></i>
                     </a>
@@ -284,6 +290,8 @@ footer {
                     </div>
 <img src="https://github.com/frlaise/meusite/blob/main/image/capa-papo-Bit.png" alt="Papo Bit" class="w-full h-45 object-cover" loading="lazy">
                     <p class="text-slate-600 mb-6">Podcast com reflexões sobre cultura, sociedade e tecnologias digitais.</p>
+
+                    <p class="text-slate-600 mb-6">Podcast com reflexões sobre tecnologia e sociedade.</p>
                     <div class="flex gap-4">
                         <a href="https://creators.spotify.com/pod/profile/papo-bit" class="text-accent hover:text-accent/80 font-medium inline-flex items-center gap-1" aria-label="Papo Bit no Spotify">
                             Spotify <i data-feather="external-link" class="w-4 h-4"></i>
@@ -333,8 +341,15 @@ footer {
 
 <!-- LIVRO 3 -->
       <div class="book">
+
         <h3>Cuidar da Terra</h3>
 <img src="https://github.com/frlaise/meusite/blob/main/image/cuidar-da-terra.png" alt="Cuidar da Terra" class="w-full h-35 object-cover" loading="lazy">
+
+        <h3>O Sistema Solar</h3>
+<img src="https://github.com/frlaise/meusite/blob/main/image/Os-planetas-e-o-sistema-solar.png" alt="O Sistema Solar" class="w-full h-35 object-cover" loading="lazy">
+        <button class="read-btn" onclick="openModal('pdf3')">Ler Online</button>
+        
+      </div>
 
         <button class="read-btn" onclick="openModal('pdf3')">Ler Online</button>
    
@@ -352,6 +367,7 @@ footer {
 <!-- LIVRO 5 -->
 
 <div class="book">
+
         <h3>O Sistema Solar</h3>
 <img src="https://github.com/frlaise/meusite/blob/main/image/Os-planetas-e-o-sistema-solar.png" alt="O Sistema Solar" class="w-full h-35 object-cover" loading="lazy">
         <button class="read-btn" onclick="openModal('pdf5')">Ler Online</button>
@@ -376,8 +392,10 @@ footer {
         
       </div>
 
+        <h3>Cuidar da Terra</h3>
+<img src="https://github.com/frlaise/meusite/blob/main/image/image/cuidar-da-terra.png" alt="Cuidar da Terra" class="w-full h-35 object-cover" loading="lazy">
 
-
+        <button class="read-btn" onclick="openModal('pdf5')">Ler Online</button>
 
       </div>
 
@@ -404,6 +422,19 @@ footer {
       pdf5: 'https://drive.google.com/file/d/14MsYMwCV0cwxMDsZP4s7Tp26jccAbP9N/preview',
       pdf6: 'https://drive.google.com/file/d/1PS3BFuViMk3d5EcVDdWqhPf2FKufuGbx/preview',
       pdf7:'https://drive.google.com/file/d/13OPaBMKy19L_qv28_mDCutqLJEnzHHOo/preview'
+
+
+    };
+
+    const iframe = document.getElementById('modalIframe');
+    iframe.src = pdfLinks[pdfId];
+
+    const modal = document.getElementById('pdfModal');
+    modal.classList.remove('hidden');
+
+    // Impede que o clique dentro do iframe feche o modal
+    iframe.addEventListener('click', e => e.stopPropagation());
+  }
 
 
     };
@@ -460,7 +491,7 @@ footer {
 
    <h2>Contato</h2>
       <p>Quer falar comigo sobre colaborações, projetos ou livros? 💌</p>
-      <p>Envie um e-mail para: <strong><a href="mailto:franca.laise59@gmail.com">contato@laise.com</a></strong></p>
+      <p>Envie um e-mail para: <strong><a href="mailto:franca.laise59@gmail.com">laise59@gmail.com</a></strong></p>
     </section>
 
                 <div class="mt-12">
@@ -496,6 +527,24 @@ footer {
     <script>feather.replace();</script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
